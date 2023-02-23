@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Header from "./components/header";
+import Dish from "./components/dish";
+import NewDish from "./components/newDish";
+// import Dish, {Flag} from "./components/dish";
+// import Dish, * as D from "./components/dish";
+// import Dish, {Flag, Ingredient} from "./components/dish";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './styles/App.css';
+
+class App extends Component{
+    dish = "tacos";
+    diches = ["Tacor", "Ceviche", "Paella"];
+    render(){
+        return(
+            <div className="App">
+                <Header/>
+                <NewDish />
+                <Dish name={this.dish} qty="3"/>
+                {/* Yo como { this.dish }
+                <ul>
+                    {
+                        this.diches.map(dish=><li>{dish}</li>)
+                    }
+                </ul> */}
+            </div>
+        )
+    }
 }
 
 export default App;
