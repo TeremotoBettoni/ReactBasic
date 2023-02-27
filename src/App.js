@@ -25,16 +25,43 @@ class App extends Component{
         e.preventDefault();
         window.location.href = '/platillos';
     }
+
     showCountries = e => {
         e.preventDefault();
         window.location.href = '/countries';
+    }
+
+    updateDish = (index, updateName) =>{
+        let newState = {...this.state};
+        newState.diches.dishes[index].name = updateName;
+
+        this.setState(newState);
+    }
+
+    addDish = (dishName) =>{
+        let newState = {...this.state};
+
+        const newDish ={
+            id: newState.diches.dishes.length,
+            name: dishName,
+            country: "Peru",
+            ingredients: [
+                "Carne",
+                "Papa",
+                "Salsa"
+            ]
+        };
+
+        //ahora generamos la asignacion
+        newState.diches.dishes.push(newDish);
+        this.setState(newState);
     }
 
     render(){
         return(
             <div className="App">
                 <Header/>
-                <NewDish />
+                <NewDish onAddDish={this.addDish}/>
                 <br />
                 {/* <Dish name={this.dish} qty="3"/> */}
                 {/* <Button variant="contained" color="secondary" onClick={this.showDishes}>Platillos</Button> */}
@@ -48,7 +75,7 @@ class App extends Component{
                 </ul> */}
 
                 {/* a travez de este podemos obtener los datos a travez de la propiedad data */}
-                <Dishes data={this.state.diches}/>
+                <Dishes data={this.state.diches} onUpdateDish={this.updateDish}/>
             </div>
         )
     }

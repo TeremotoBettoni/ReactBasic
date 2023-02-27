@@ -20,6 +20,12 @@ class NewDish extends Component{
         console.log(this.newDish.value);
         //De esta forma se accede con in inpud normal como el comentado luego
         //console.log(this.newDish.current.value);
+
+        //agregar paltos
+        this.props.onAddDish(this.newDish.value);
+        //agregamos cadena vacia para que se adicione
+        this.newDish.value="";
+
     }
 
     // addDish (event){

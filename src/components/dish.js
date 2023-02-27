@@ -11,6 +11,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { TextField } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
 
 
 // export class Flag extends Component{
@@ -42,15 +44,37 @@ import ListItemText from '@mui/material/ListItemText';
 // }
 
 class Dish extends Component{
-    ingredients = ["Tortilla", "Carne", "Cebolla"];
+    // ingredients = ["Tortilla", "Carne", "Cebolla"];
     
-    countIngredients() {
-        return this.ingredients.length;
+    // countIngredients() {
+    //     return this.ingredients.length;
+    // }
+
+    state ={
+        edit: false,
+        name: this.props.name
+    }
+
+    edit = e=>{
+        this.setState({edit: !this.state.edit})
+    };
+
+    handleChange = e =>{
+        let newState = {...this.state};
+        newState.name = e.currentTarget.value;
+
+        this.setState(newState);
+        //ahora detonamos la comunicacion con padre o App.js
+        this.props.onUpdateDish(this.props.index, newState.name);
+    };
+
+    componentDidUpdate(){
+        console.log('Componente Actualizado');
     }
 
     render(){
         //const { params } = this.props.match;
-        
+
         return(
             // Primera Manera
             // <div className="dish">
@@ -74,7 +98,25 @@ class Dish extends Component{
             <Card>
                 <CardContent>
                     <nav aria-label="main mailbox folders">
-                        <List subheader={<ListSubheader component="div">{this.props.name}</ListSubheader>}>
+                        <List subheader={<ListSubheader component="div">
+                            {this.state.edit ? (
+                                <TextField
+                                label="Platillo..."
+                                type="text"
+                                margin="normal"
+                                variant="outlined"
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                />
+                            ) : (
+                                this.props.name
+                            )}
+                            <EditIcon size="small" onClick={this.edit}>
+                                {/* <Edit/> */}
+                            </EditIcon>
+                            </ListSubheader>
+                        }
+                        >
                             {this.props.ingredients.map((ingredients, index) =>(
                                 <ListItem key={index}>
                                     <ListItemButton>

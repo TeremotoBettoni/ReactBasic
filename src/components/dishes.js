@@ -19,6 +19,11 @@ export class Dishes extends Component{
         window.location.href = '/';
     }
 
+    updateDish = (index, updateName) =>{
+        // este onUpdateDish es diferente al de dish.js, este representa es el que viene desde App.js
+        this.props.onUpdateDish(index, updateName);
+    }
+
     render(){
         return(
             <div>
@@ -50,7 +55,9 @@ export class Dishes extends Component{
                 </nav> */}
                 
                 {this.props.data.dishes.map((dish, index) =>(
-                    <Dish key={index} name={dish.name} ingredients={dish.ingredients}></Dish>
+                    <Dish key={index} name={dish.name} ingredients={dish.ingredients}
+                    index={index}
+                    onUpdateDish={this.updateDish}></Dish>
                     ))}
                 
 
