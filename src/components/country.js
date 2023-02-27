@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Delete from '@mui/icons-material/Delete';
 
 
 
@@ -9,11 +9,15 @@ export class Country extends Component{
         this.props.onDelete(name);
     }
 
+    componentWillUnmount(){
+        console.log("Componente desmontado");
+    }
+
     render(){
         return(
             <li>
                 <IconButton size="small" onClick={this.edit}>
-                    <DeleteIcon onClick={() => this.delete(this.props.name)}/>
+                    <Delete onClick={() => this.delete(this.props.name)}/>
                 </IconButton>
                 {this.props.name}
             </li>

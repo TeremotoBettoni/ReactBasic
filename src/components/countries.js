@@ -37,13 +37,13 @@ export class Countries extends Component{
         return(
             <div>
                 <h1>Paises</h1>
-                <Button variant="contained" color="secondary" onClick={this.getCountries}>Cargar Lista</Button>
                 <ul>
                     {this.state.countries.map((country, index) => (
                         <Country key={index} name={country.name} onDelete={this.delete}/>
                         ))
                     }
                 </ul>
+                <Button variant="contained" color="secondary" onClick={this.getCountries}>Cargar Lista</Button>
             </div>
         );
     }
