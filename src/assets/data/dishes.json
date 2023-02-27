@@ -1,0 +1,37 @@
+{
+    "dishes": [
+        {
+            "id": "1",
+            "name": "Tacos",
+            "country": "Mexico",
+            "ingredients": [
+                "Tortillo",
+                "Carne",
+                "Cebolla",
+                "Cilantro",
+                "Salsa Picante"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Anticucho",
+            "country": "Peru",
+            "ingredients": [
+                "Carne",
+                "Papa",
+                "Salsa"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Gallo Pinto",
+            "country": "Costa Rica",
+            "ingredients": [
+                "Frijoles",
+                "Arroz",
+                "Carne"
+            ]
+        }
+    ]
+
+}
