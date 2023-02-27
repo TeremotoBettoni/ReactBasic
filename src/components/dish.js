@@ -1,15 +1,17 @@
-import React, { Component, Fragment } from "react";
-import Button from '@mui/material/Button';
+import React, { Component } from "react";
+//import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, List } from '@mui/material';
+//import Typography from '@mui/material/Typography';
+//import { CardActionArea, List } from '@mui/material';
 import { ScatterPlot } from "@mui/icons-material";
 import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
 
 // export class Flag extends Component{
 //     render(){
@@ -47,7 +49,7 @@ class Dish extends Component{
     }
 
     render(){
-        const { params } = this.props.match;
+        //const { params } = this.props.match;
         
         return(
             // Primera Manera
@@ -69,7 +71,7 @@ class Dish extends Component{
             // </div>
 
             // Manera con card de Material IU
-            <Card sx={{ maxWidth: 345 }}>
+            <Card>
                 <CardContent>
                     <nav aria-label="main mailbox folders">
                         <List subheader={<ListSubheader component="div">{this.props.name}</ListSubheader>}>

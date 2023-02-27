@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import data from "../assets/data/dishes.json"
-import Button from '@mui/material/Button';
+//import data from "../assets/data/dishes.json"
+//import Button from '@mui/material/Button';
 import Dish from './dish'
 // import List from '@mui/material/List';
 // import ListItem from '@mui/material/ListItem';
@@ -22,8 +22,8 @@ export class Dishes extends Component{
     render(){
         return(
             <div>
-                <h1>Platillos</h1>
-                <Button variant="contained" color="secondary" onClick={this.goBack}>Regresar</Button>
+                {/* <h1>Platillos</h1>
+                <Button variant="contained" color="secondary" onClick={this.goBack}>Regresar</Button> */}
                 {/* {data.dishes.map(dish => (
                     <div>
                         <div>{dish.name}</div>
@@ -48,10 +48,11 @@ export class Dishes extends Component{
                         ))}
                     </List>
                 </nav> */}
-
-                {data.dishes.map((dish, index) =>(
+                
+                {this.props.data.dishes.map((dish, index) =>(
                     <Dish key={index} name={dish.name} ingredients={dish.ingredients}></Dish>
-                ))}
+                    ))}
+                
 
             </div>
         );
